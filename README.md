@@ -1,6 +1,6 @@
 # DAA_Assignment6
 
-GROUP NO. 13: Section C
+GROUP NO. 13: (Section C)
 
 1: RAUNAK SINGH RATHORE (IIT2019222)
 
