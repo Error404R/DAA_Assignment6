@@ -1,6 +1,8 @@
-# DAA_Assignment6
+# DAA_Assignment_6
 
-GROUP NO. 13: (Section C)
+Topic: 8 puzzle problem
+
+GROUP NO.13:(Section C)
 
 1: RAUNAK SINGH RATHORE (IIT2019222)
 
