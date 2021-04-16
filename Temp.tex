@@ -77,3 +77,108 @@ Next, how do we decide when to follow which particular node and when to avoid a 
 Now let us determine the cost function for our 8 puzzle problem. Let us assume that moving one tile in any direction will have a 1 unit cost. Keeping that in mind, we define a cost function for the 8-puzzle algorithm as below: \\
 
 c(x) = f(x) + h(x) where\\\\
+f(x) is the length of the path from root to x (the number of moves so far) and\\
+h(x) is the number of non-blank tiles not in their goal position (the number of misplaced tiles). There are at least h(x) moves to transform state x to a goal state\\
+
+Let us try to solve an example first and then frame the algorithm. Consider the initial (left) and final state (right) as shown below:\\
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale = 0.45]{InitialvsFinal.jpeg}
+    \caption{Initial vs Final State}
+\end{figure}\\
+
+
+Now, the empty tile (depicted by cross) can move in three directions: up, left and down. However to attain the final state, it is best if the tile shifts to its left. (See Fig. 2),Because in left move effective cost is 4 whereas in up and down it is 6.we will proceed to that which has least cost among all and leave the rest. \\
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale = 0.50]{step1.jpeg}
+    \caption{Step 1}
+\end{figure}\\
+
+
+Similarly, the empty tile (depicted by cross) can move in all four directions but not in the right direction because if we move empty tile in right direction we get the parent one so except right move we will move in all possible direction. However to attain the final state, it is best if the tile shifts downwards(same reason least effective cost).(See Fig. 3).\\
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale = 0.50]{step2.jpeg}
+    \caption{Step 2}
+\end{figure}\\
+
+Now,for the left move value of h(x) will be zero, means all non-blank tiles are in their goal position and that is how to attain the final state. (See Fig. 4).
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale = 0.50]{step3.jpeg}
+    \caption{Step 3}
+\end{figure}\\
+
+Following is the psuedo-code implementing above algorithm:\\
+\begin{algorithm}
+\caption{LCSearch Function}
+    \label{fup}
+    \begin{algorithmic}[1]
+    \Function{LCSearch}{$list_node *t$}
+        \If {t is an answer node}
+            \State print(t)
+            \State \textbf{return} 
+        \EndIf
+        
+        \State E = t; // E-node
+        \State Initialize the list of live nodes to be empty;
+        \State
+        \State \textbf{while} $(true)$ 
+        \State \textbf{for} each child $x$ of $E$ 
+                
+                \If{x is an answer node}
+                    \State print(path from x to t)
+                    \State \textbf{return}
+                \EndIf
+                \State Add (x); // Add x to list of live nodes;
+                \State x$->$parent = E; // Pointer for path to root
+        \State \textbf{end for}
+        
+        \State
+        \If{there are no more live nodes}
+            \State print("No answer node")
+            \State \textbf{return}
+        \EndIf
+        \State
+        \State// Find a live node with least estimated cost
+        \State E = Least(); 
+
+        \State // The found node is deleted from the list of 
+        \State // live nodes
+        
+        \State \textbf{end while}
+        
+        
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
+
+\section{Analysis}
+
+
+\textbf{Time Complexity:} \\
+Time complexity - 
+ We keep running the BFS-like search until the destination state is not reached. For each state we generate an average of three new children and if the final state is found at a depth of D then the number of nodes generated will be (avg-number-of-children)D.
+
+Avg no of children = (corner-points*2 + middle-point*4 + edge-middle-point*3)/9
+		=   (4*2+1*4+4*3)/9  =  2.66 
+Since the weightage of the middle point will be more, we can approximate it to 3. 
+
+So, the worst time complexity will be O(3D) where D is the depth of the final state from initial state.
+
+The best case time complexity will be O(1) when either the solution is not possible or the initial state is equal to the final state. 
+
+\textbf{Space Complexity:} \\
+
+Space complexity will be equal to the number of nodes traversed*size-of-one-state. 
+
+So, Worst case space complexity = O(9!*size-of-one-state). 
+
+Best case space complexity will be O(1) when either the initial state and final states are the same or the solution is not feasible.
+
+\\
+\section{Conclusion}
+We implemented the given problem in the optimized way under certain constraints.
+
+\end{document}
