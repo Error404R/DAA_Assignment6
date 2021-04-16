@@ -23,3 +23,34 @@
 \textit{IIIT Allahabad}\\
 Prayagaraj, India \\
 iit2019222@iiita.ac.in}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Prince Kumar Gupta}
+\IEEEauthorblockA{\textit{Information Technology} \\
+\textit{IIIT Allahabad}\\
+Prayagaraj, India \\
+iit2019223@iiita.ac.in}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Shivangi Verma}
+\IEEEauthorblockA{\textit{Information Technology} \\
+\textit{IIIT Allahabad}\\
+Prayagaraj, India \\
+iit2019224@iiita.ac.in}
+}
+\maketitle
+
+\begin{abstract}
+This paper introduces an algorithm to Solve the 8 Puzzle Problem. The idea is to list down and analyze different approaches to find the most efficient solution in terms of time and space complexity.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Branch and Bound, Breadth First Search
+
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+The 8 Puzzle Problem states that given a 3×3 board with 8 tiles (every tile has one number from 1 to 8) and one empty space. The objective is to place the numbers on tiles to match the final configuration using the empty space. We can slide four adjacent (left, right, above, and below) tiles into the empty space. We will be making use of Branch and Bound algorithm to solve the problem.
+\\
+\\
+\textbf{Branch and Bound: } The search for an answer node can often be speeded by using an “intelligent” ranking function, also called an approximate cost function to avoid searching in sub-trees that do not contain an answer node. It is similar to the backtracking technique but uses a BFS-like search.\\\\
+\textbf{Breadth First Search: } BFS is a traversing algorithm where you should start traversing from a selected node (source or starting node) and traverse the graph layerwise thus exploring the neighbour nodes (nodes which are directly connected to source node). You must then move towards the next-level neighbour nodes.\\
