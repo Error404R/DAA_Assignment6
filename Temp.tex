@@ -54,3 +54,26 @@ The 8 Puzzle Problem states that given a 3×3 board with 8 tiles (every tile has
 \\
 \textbf{Branch and Bound: } The search for an answer node can often be speeded by using an “intelligent” ranking function, also called an approximate cost function to avoid searching in sub-trees that do not contain an answer node. It is similar to the backtracking technique but uses a BFS-like search.\\\\
 \textbf{Breadth First Search: } BFS is a traversing algorithm where you should start traversing from a selected node (source or starting node) and traverse the graph layerwise thus exploring the neighbour nodes (nodes which are directly connected to source node). You must then move towards the next-level neighbour nodes.\\
+
+As the name BFS suggests, you are required to traverse the graph breadthwise as follows:\\
+1. First move horizontally and visit all the nodes of the current layer.\\
+2. Move to the next layer.
+
+\section{Algorithm Design}
+While evaluating and traversing through the tree, we will come across three different types of nodes. These nodes are: Live Node, E-Node and Dead Node.\\\\
+Following is a short description of these nodes:\\
+\textbf{Live Node: } It is a node that has been generated but whose children have not yet been generated. \\\\
+\textbf{E-Node: } It is a live node whose children are currently being explored. In other words, an E-node is a node currently being expanded.  \\\\
+\textbf{Dead Node: } It is a generated node that is not to be expanded or explored any further. All children of a dead node have already been expanded. \\\\
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[scale = 0.50]{Breaking Into Triangles.jpeg}
+%     \caption{Breaking Into Triangles}
+% \end{figure}
+Next, how do we decide when to follow which particular node and when to avoid a different node? There has to be some way to know following which path will give the best result. This is done by calculating cost of each node. Cost of a node depicts how difficult will it be to reach the solution when following this particular path. Hence, lesser the cost, better the solution.\\\\
+\textbf{Cost Function }\\Each node X in the search tree is associated with a cost. The cost function is useful for determining the next E-node. The next E-node is the one with the least cost.\\
+\\
+
+Now let us determine the cost function for our 8 puzzle problem. Let us assume that moving one tile in any direction will have a 1 unit cost. Keeping that in mind, we define a cost function for the 8-puzzle algorithm as below: \\
+
+c(x) = f(x) + h(x) where\\\\
