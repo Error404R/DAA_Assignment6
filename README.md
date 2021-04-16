@@ -4,6 +4,8 @@ Topic: 8 puzzle problem
 
 GROUP NO.13:(Section C)
 
+GROUP Members:
+
 1: RAUNAK SINGH RATHORE (IIT2019222)
 
 2: PRINCE KUMAR GUPTA (IIT2019223)
